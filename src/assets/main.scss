@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@200;300;400;600&display=swap');
+
+:root{
+	--colour-black: #000;
+	--colour-white: #fff;
+	--colour-paper: #F2F1EF;
+	--colour-basalt: #212121;
+	--colour-chalk: #F7F7F7;
+
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 2rem;
+	--spacing-xl: 4rem;
+
+	--font-weight-extra-light: 200;
+	--font-weight-light: 300;
+	--font-weight-regular: 400;
+	--font-weight-bold: 600;
+
+	--border-radius-sm: 0.25rem;
+	--border-radius-md: 0.5rem;
+	--border-radius-lg: 1rem;
+}
+
+body{
+	font-size: 20px;
+	font-family: 'Source Serif Pro', serif;
+	line-height: 1.5rem;
+	background-color: var(--colour-paper);
+	color: var(--colour-basalt);
+}
+
+h1{
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 2.25rem;
+}

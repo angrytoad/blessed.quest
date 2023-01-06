@@ -1,0 +1,13 @@
+.home{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	min-width: 100vw;
+
+	.buttons{
+		padding: var(--spacing-md) 0;
+		display: flex;
+		gap: var(--spacing-sm);
+	}
+}
