@@ -1,0 +1,12 @@
+.saveDialogue{
+	.buttons{
+		display: flex;
+		gap: var(--spacing-md);
+		align-items: center;
+
+		span{
+			color: var(--colour-muted);
+			cursor: pointer;
+		}
+	}
+}

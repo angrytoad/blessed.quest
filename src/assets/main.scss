@@ -6,6 +6,7 @@
 	--colour-paper: #F2F1EF;
 	--colour-basalt: #212121;
 	--colour-chalk: #F7F7F7;
+	--colour-muted: #9B9B9B;
 
 	--spacing-xs: 0.25rem;
 	--spacing-sm: 0.5rem;
@@ -33,6 +34,22 @@ body{
 
 h1{
 	font-size: 1.5rem;
-	font-weight: 700;
+	font-weight: 600;
 	line-height: 2.25rem;
+	margin-bottom: var(--spacing-md);
+}
+
+h2{
+	font-weight: var(--font-weight-bold);
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	margin-bottom: var(--spacing-md);
+}
+
+p{
+	margin-bottom: var(--spacing-md);
+}
+
+strong{
+	font-weight: var(--font-weight-bold);
 }

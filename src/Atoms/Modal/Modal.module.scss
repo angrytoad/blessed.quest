@@ -1,0 +1,84 @@
+.modal{
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+
+	&.open{
+		animation-fill-mode: forwards;
+		animation-name: animateModalIn;
+		animation-iteration-count: 1;
+		animation-duration: 0.8s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.content{
+			animation-fill-mode: forwards;
+			animation-name: animateContentIn;
+			animation-iteration-count: 1;
+			animation-duration: 0.8s;
+			animation-timing-function: ease-out;
+		}
+	}
+
+	&.closed{
+		display: none;
+	}
+
+	.content{
+		background-color: var(--colour-paper);
+		position: relative;
+		z-index: 1010;
+		padding: var(--spacing-md);
+		width: 100%;
+		max-width: 600px;
+		border-radius: var(--border-radius-sm);
+
+		.close{
+			position: absolute;
+			right: -50px;
+			top: 0;
+
+			.icon{
+				color: var(--colour-white);
+
+				&:hover{
+					cursor: pointer;
+					color: var(--colour-chalk);
+				}
+			}
+		}
+	}
+
+	.backdrop{
+		position: fixed;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		background-color: rgba(0,0,0,0.8);
+		z-index: 1000;
+	}
+}
+
+@keyframes animateModalIn {
+	0%{
+		opacity: 0;
+
+	}
+
+	50%{
+		opacity: 1;
+	}
+}
+
+@keyframes animateContentIn {
+	0%{
+		transform: translateY(-50px);
+	}
+	100%{
+		transform: translateY(0px);
+	}
+}

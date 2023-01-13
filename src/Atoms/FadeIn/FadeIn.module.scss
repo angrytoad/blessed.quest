@@ -5,6 +5,10 @@
 	animation-iteration-count: 1;
 	animation-timing-function: linear;
 	animation-fill-mode: forwards;
+
+	&.quick{
+		animation-duration: 0.4s;
+	}
 }
 
 @keyframes fadeIn {

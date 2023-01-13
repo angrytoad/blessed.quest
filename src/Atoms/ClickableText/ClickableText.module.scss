@@ -1,0 +1,16 @@
+.clickableText{
+
+	&.muted{
+		color: var(--colour-muted);
+	}
+
+	&:hover{
+		cursor: pointer;
+		text-decoration: underline;
+	}
+
+	&:focus{
+		text-decoration: underline;
+		outline: none;
+	}
+}

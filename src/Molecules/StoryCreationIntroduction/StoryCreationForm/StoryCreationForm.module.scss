@@ -1,0 +1,15 @@
+.storyCreationForm{
+	box-sizing: border-box;
+	.input{
+		margin-bottom: var(--spacing-sm);
+	}
+
+	.back{
+		margin-bottom: var(--spacing-md);
+
+		&:hover{
+			color: var(--colour-muted);
+			cursor: pointer;
+		}
+	}
+}
