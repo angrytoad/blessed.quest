@@ -3,3 +3,7 @@ export type Metadata = {
   author?: string,
   description?: string,
 }
+
+export type Page = {
+  content: string,
+}

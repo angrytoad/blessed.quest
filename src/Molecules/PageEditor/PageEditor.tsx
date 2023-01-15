@@ -14,6 +14,7 @@ const PageEditor: FunctionComponent<PageEditorPropsType> = ({}: PageEditorPropsT
 
   const {
     BuilderUIStore,
+    BuilderStore,
   } = useContext(AppContext);
 
   const handleOpenPageBrowser = () => {
@@ -26,6 +27,8 @@ const PageEditor: FunctionComponent<PageEditorPropsType> = ({}: PageEditorPropsT
     setShowPageBrowser(false);
   }
 
+  const contextualPage = BuilderStore.contextualPage;
+
   return (
     <FadeIn className={css.pageEditor}>
       <VerticalPeeker
@@ -34,10 +37,20 @@ const PageEditor: FunctionComponent<PageEditorPropsType> = ({}: PageEditorPropsT
         onOpen={handleOpenPageBrowser}
         onClose={handleClosePageBrowser}
       >
-        <PageBrowser />
+        <PageBrowser onClose={handleClosePageBrowser} />
       </VerticalPeeker>
       <div className={css.contextualPage}>
-        <h1>Hi, im the page editor</h1>
+        {
+          !contextualPage
+          ?
+            <div className={css.noPageSelected}>
+              <p>You haven't select a page yet, select a page from the All pages list on the left to start editing</p>
+            </div>
+          :
+            <div className={css.page}>
+              <p>{ contextualPage.content }</p>
+            </div>
+        }
       </div>
     </FadeIn>
   );

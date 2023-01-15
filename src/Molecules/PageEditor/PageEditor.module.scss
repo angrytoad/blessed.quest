@@ -8,5 +8,13 @@
 		background-color: var(--colour-paper);
 		padding: var(--spacing-sm);
 		padding-left: var(--spacing-lg);
+
+		.noPageSelected{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			color: var(--colour-muted);
+		}
 	}
 }
