@@ -17,7 +17,7 @@ class BuilderUIStore {
       name: 'BuilderUIStore',
       properties: [
         'builderPage',
-        'fullView'
+        'fullView',
       ],
       storage: localforage
     });

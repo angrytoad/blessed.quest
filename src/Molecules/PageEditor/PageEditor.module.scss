@@ -1,3 +1,11 @@
 .pageEditor{
-	
+	height: 100%;
+	display: grid;
+	grid-template-columns: auto 1fr;
+
+	.contextualPage{
+		height: 100%;
+		background-color: var(--colour-paper);
+		padding: var(--spacing-sm);
+	}
 }
