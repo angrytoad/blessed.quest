@@ -1,7 +1,6 @@
 import React, {DragEvent, FunctionComponent, PropsWithChildren, useRef, useState} from "react";
 import css from "./VerticalPeeker.module.scss"
 import useMousePosition from "../../Hooks/useMousePosition";
-import useDragPosition from "../../Hooks/useDragPosition";
 
 export type VerticalPeekerPropsType = {
   className?: string,
@@ -42,20 +41,6 @@ const VerticalPeeker: FunctionComponent<PropsWithChildren<VerticalPeekerPropsTyp
     }
   }
 
-  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-    console.log(dragStartX);
-    console.log(e.changedTouches[0].clientX);
-    if(dragStartX !== null && dragStartX < e.changedTouches[0].clientX){
-      onOpen();
-      setDragStartX(e.changedTouches[0].clientX);
-    }
-    if(dragStartX !== null && dragStartX > e.changedTouches[0].clientX){
-      console.log('close');
-      onClose();
-      setDragStartX(0);
-    }
-  }
-
   return (
     <div
       ref={verticalPeekerRef}
@@ -71,8 +56,6 @@ const VerticalPeeker: FunctionComponent<PropsWithChildren<VerticalPeekerPropsTyp
         onClick={!open ? onOpen : onClose}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
-        onTouchStart={handleDragStart}
-        onTouchEnd={handleTouchEnd}
       >
         <span className={css.text}>{ text }</span>
       </div>

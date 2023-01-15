@@ -29,7 +29,7 @@ const PageEditor: FunctionComponent<PageEditorPropsType> = ({}: PageEditorPropsT
   return (
     <FadeIn className={css.pageEditor}>
       <VerticalPeeker
-        text="Page Browser"
+        text="All Pages"
         open={showPageBrowser}
         onOpen={handleOpenPageBrowser}
         onClose={handleClosePageBrowser}
