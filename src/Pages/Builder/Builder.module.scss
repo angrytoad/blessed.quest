@@ -34,6 +34,7 @@
 		grid-template-areas: "details details""toolbar page";
 		padding: 0;
 		grid-gap: var(--spacing-sm);
+		overflow: hidden;
 
 		.details{
 			height: auto;

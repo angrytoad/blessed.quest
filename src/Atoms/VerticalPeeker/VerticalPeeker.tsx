@@ -25,19 +25,34 @@ const VerticalPeeker: FunctionComponent<PropsWithChildren<VerticalPeekerPropsTyp
 
   const verticalPeekerRef = useRef<HTMLDivElement>(null);
 
-  const handleDragStart = (e: DragEvent<HTMLDivElement>) => {
+  const handleDragStart = () => {
     if(verticalPeekerRef.current && mousePosition.x){
       setDragStartX(mousePosition.x);
     }
 
   }
 
-  const handleDragEnd = (e: DragEvent<HTMLDivElement>) => {
+  const handleDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+    console.log('drag end');
     if(dragStartX && dragStartX < e.clientX){
       onOpen();
     }
     if(dragStartX && dragStartX > e.clientX){
       onClose();
+    }
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    console.log(dragStartX);
+    console.log(e.changedTouches[0].clientX);
+    if(dragStartX !== null && dragStartX < e.changedTouches[0].clientX){
+      onOpen();
+      setDragStartX(e.changedTouches[0].clientX);
+    }
+    if(dragStartX !== null && dragStartX > e.changedTouches[0].clientX){
+      console.log('close');
+      onClose();
+      setDragStartX(0);
     }
   }
 
@@ -56,6 +71,8 @@ const VerticalPeeker: FunctionComponent<PropsWithChildren<VerticalPeekerPropsTyp
         onClick={!open ? onOpen : onClose}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
+        onTouchStart={handleDragStart}
+        onTouchEnd={handleTouchEnd}
       >
         <span className={css.text}>{ text }</span>
       </div>

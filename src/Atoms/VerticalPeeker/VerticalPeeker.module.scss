@@ -63,6 +63,12 @@
 				padding: 100px 5px;
 			}
 		}
+
+		&.open{
+			.content{
+				max-width: 210px;
+			}
+		}
 	}
 
 }
