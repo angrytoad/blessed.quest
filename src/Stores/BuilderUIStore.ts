@@ -1,5 +1,7 @@
 import {makeAutoObservable} from "mobx";
 import {BuilderPage} from "../Types/ui.types";
+import {clearPersistedStore, makePersistable} from "mobx-persist-store";
+import localforage from "localforage";
 
 
 class BuilderUIStore {
@@ -10,6 +12,19 @@ class BuilderUIStore {
 
   constructor() {
     makeAutoObservable(this);
+
+    makePersistable(this, {
+      name: 'BuilderUIStore',
+      properties: [
+        'builderPage',
+        'fullView'
+      ],
+      storage: localforage
+    });
+  }
+
+  clearPersistable(){
+    clearPersistedStore(this);
   }
 
   showSaveDialogue(){
@@ -26,6 +41,10 @@ class BuilderUIStore {
 
   setFullView(){
     this.fullView = true;
+  }
+
+  hideFullView(){
+    this.fullView = false;
   }
 
 }

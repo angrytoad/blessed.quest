@@ -18,6 +18,7 @@ const Builder: FunctionComponent<BuilderPropsType> = ({}: BuilderPropsType) => {
 
   const {
     BuilderUIStore,
+    BuilderStore,
   } = useContext(AppContext);
 
   const [,setLocation] = useLocation();
@@ -63,7 +64,10 @@ const Builder: FunctionComponent<BuilderPropsType> = ({}: BuilderPropsType) => {
         text="Do you want to download a copy of your story? You can use this and come back to the editor at any time."
         onClose={() => BuilderUIStore.hideSaveDialogue()}
         onCancelSave={() => {
-          BuilderUIStore.hideSaveDialogue()
+          BuilderUIStore.hideSaveDialogue();
+          BuilderUIStore.clearPersistable();
+          BuilderUIStore.hideFullView();
+          BuilderStore.clearPersistable();
           setLocation('/');
         }}
         onSave={() => {
