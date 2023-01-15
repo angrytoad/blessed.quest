@@ -1,3 +1,72 @@
 .toolbar{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
 
+	.main{
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+		align-items: center;
+		gap: var(--spacing-sm);
+
+		.toolbarItem{
+			padding: var(--spacing-sm);
+			border:1px solid var(--colour-muted);
+			border-radius: var(--border-radius-sm);
+			background-color: var(--colour-white);
+			display: block;
+			transition: all 0.2s linear;
+
+			.icon{
+				color: var(--colour-muted);
+				display: block;
+			}
+
+			&:hover{
+				cursor: pointer;
+			}
+
+			&:hover:not(.active){
+				border-color: var(--colour-basalt);
+
+				.icon{
+					color: var(--colour-basalt);
+					display: block;
+				}
+			}
+
+			&.active{
+				background-color: var(--colour-basalt);
+
+				.icon{
+					color: var(--colour-white);
+				}
+			}
+
+
+		}
+	}
+
+
+
+	.close{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		grid-area: close;
+		background-color: initial;
+
+		.icon{
+			display:block;
+			cursor: pointer;
+			padding: var(--spacing-xs);
+			color: var(--colour-muted);
+
+			&:hover{
+				color: var(--colour-basalt);
+			}
+		}
+	}
 }

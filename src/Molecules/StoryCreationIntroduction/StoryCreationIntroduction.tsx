@@ -39,8 +39,8 @@ const StoryCreationIntroduction: FunctionComponent<StoryCreationIntroductionProp
               Take a bit of time to play around with the tool, and see what you can create!
             </p>
             <div className={css.buttons}>
-              <Button icon="✨" onClick={handleShowCreationForm}>Create new story</Button>
-              <Button icon="💾" disabled>Load existing story file</Button>
+              <Button className={css.button} icon="✨" onClick={handleShowCreationForm}>Create new story</Button>
+              <Button className={css.button} icon="💾" disabled>Load existing story file</Button>
             </div>
           </>
         );

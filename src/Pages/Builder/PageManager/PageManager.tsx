@@ -3,6 +3,8 @@ import { observer } from "mobx-react";
 import css from "./PageManager.module.scss"
 import {AppContext} from "../../../AppContext";
 import {BuilderPage} from "../../../Types/ui.types";
+import MetadataEditor from "../../../Molecules/MetadataEditor/MetadataEditor";
+import PageEditor from "../../../Molecules/PageEditor/PageEditor";
 
 export type PageManagerPropsType = {
 
@@ -19,9 +21,9 @@ const PageManager: FunctionComponent<PageManagerPropsType> = ({
   const getPage = () => {
     switch(BuilderUIStore.builderPage){
       case BuilderPage.METADATA:
-        return <h1>Meta Data</h1>
+        return <MetadataEditor />
       case BuilderPage.PAGE_EDITOR:
-        return <h1>Page Editor</h1>
+        return <PageEditor />
       default:
         return null;
     }

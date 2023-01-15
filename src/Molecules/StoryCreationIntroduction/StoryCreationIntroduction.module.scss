@@ -17,4 +17,18 @@
 			margin-bottom: var(--spacing-md);
 		}
 	}
+
+	@media screen and (max-width: 768px) {
+		padding: 0;
+
+		.wrapper{
+			.buttons{
+				display: block;
+
+				.button{
+					margin-top: var(--spacing-sm);
+				}
+			}
+		}
+	}
 }

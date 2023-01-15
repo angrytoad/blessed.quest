@@ -61,6 +61,15 @@
 		background-color: rgba(0,0,0,0.8);
 		z-index: 1000;
 	}
+
+	@media screen and (max-width: 768px) {
+		.content{
+			.close{
+				right: 0;
+				top: -50px;
+			}
+		}
+	}
 }
 
 @keyframes animateModalIn {

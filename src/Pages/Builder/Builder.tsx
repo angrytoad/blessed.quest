@@ -23,10 +23,6 @@ const Builder: FunctionComponent<BuilderPropsType> = ({}: BuilderPropsType) => {
 
   const [,setLocation] = useLocation();
 
-  const handleLeave = () => {
-    BuilderUIStore.showSaveDialogue();
-  }
-
   if(!BuilderUIStore.fullView){
     return (
       <FadeIn className={css.builderIntroduction}>
@@ -40,14 +36,6 @@ const Builder: FunctionComponent<BuilderPropsType> = ({}: BuilderPropsType) => {
   return (
     <>
       <FadeIn className={css.builder}>
-        <div className={css.close}>
-          <Cancel
-            className={css.icon}
-            width={40}
-            height={40}
-            onClick={handleLeave}
-          />
-        </div>
         <div className={css.details}>
           <Details />
         </div>

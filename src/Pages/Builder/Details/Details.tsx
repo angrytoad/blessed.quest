@@ -28,7 +28,7 @@ const Details: FunctionComponent<DetailsPropsType> = ({
         }
       </div>
       <div className={css.authorAndPages}>
-        <p>Written by <strong>{ BuilderStore.metadata.author }</strong></p>
+        <p className={css.author}>Written by <strong>{ BuilderStore.metadata.author }</strong></p>
         <p className={css.pages}>{ BuilderStore.pages.length } pages</p>
       </div>
     </>

@@ -1,28 +1,21 @@
 .builderIntroduction{
-	height: 100vh;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .builder{
-	height: 100vh;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
 	display: grid;
 	grid-template-columns: auto 1fr;
 	grid-template-rows: auto 1fr;
-	grid-template-areas: "close details""toolbar page";
+	grid-template-areas: ". details""toolbar page";
 	grid-gap: var(--spacing-md);
 	padding: var(--spacing-md);
 	box-sizing: border-box;
-
-	.toolbar,.close{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background-color: var(--colour-chalk);
-	}
 
 	.details{
 		grid-area: details;
@@ -32,19 +25,22 @@
 	}
 	.toolbar{
 		grid-area: toolbar;
-		width: 60px;
 	}
 	.page{
 		grid-area: page;
-		background-color: var(--colour-chalk);
+		background-color: var(--colour-paper);
 	}
-	.close{
-		grid-area: close;
-		background-color: initial;
 
-		.icon{
-			display:block;
-			cursor: pointer;
+	@media screen and (max-width: 768px) {
+		grid-template-areas: "details details""toolbar page";
+		padding: 0;
+		grid-gap: var(--spacing-sm);
+
+		.details{
+			height: auto;
+			display: block;
+			border-bottom: 1px solid var(--colour-muted);
+			padding-bottom: var(--spacing-sm);
 		}
 	}
 }

@@ -16,6 +16,16 @@
 		max-width: 100%;
 		white-space: nowrap;
 	}
+
+	@media screen and (max-width: 768px) {
+		border-right: none;
+		padding-right: 0;
+		max-width: 100%;
+
+		p{
+			display: none;
+		}
+	}
 }
 
 .authorAndPages{
@@ -27,5 +37,13 @@
 
 	.pages{
 		color: var(--colour-muted);
+	}
+
+	@media screen and (max-width: 768px) {
+		padding-left: 0;
+
+		.author{
+			display: none;
+		}
 	}
 }

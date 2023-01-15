@@ -24,12 +24,33 @@
 	--border-radius-lg: 1rem;
 }
 
+html{
+	height: 100vh;            /* fall-back */
+	height: -moz-available;
+	height: -webkit-fill-available;
+	height: fill-available;
+}
+
 body{
+	height: 100vh;            /* fall-back */
+	height: -moz-available;
+	height: -webkit-fill-available;
+	height: fill-available;
+	width: 100vw;
+	box-sizing: border-box;
 	font-size: 20px;
 	font-family: 'Source Serif Pro', serif;
 	line-height: 1.5rem;
-	background-color: var(--colour-paper);
+	background-color: var(--colour-chalk);
 	color: var(--colour-basalt);
+
+	@media screen and (max-width: 768px) {
+		padding: var(--spacing-sm);
+	}
+
+	#root{
+		height: 100%;
+	}
 }
 
 h1{
