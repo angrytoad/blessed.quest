@@ -5,6 +5,9 @@ import FadeIn from "../../Atoms/FadeIn/FadeIn";
 import {AppContext} from "../../AppContext";
 import PageBrowser from "../PageBrowser/PageBrowser";
 import VerticalPeeker from "../../Atoms/VerticalPeeker/VerticalPeeker";
+import BlockWriter from "../BlockWriter/BlockWriter";
+import {Block, Blocks, BlockTypes} from "../BlockWriter/types";
+import {toJS} from "mobx";
 
 export type PageEditorPropsType = {}
 
@@ -27,6 +30,11 @@ const PageEditor: FunctionComponent<PageEditorPropsType> = ({}: PageEditorPropsT
     setShowPageBrowser(false);
   }
 
+  const handleChange = (blocks: Blocks) => {
+    console.log(toJS(blocks));
+    BuilderStore.setContextualPageContent(blocks);
+  }
+
   const contextualPage = BuilderStore.contextualPage;
 
   return (
@@ -37,7 +45,7 @@ const PageEditor: FunctionComponent<PageEditorPropsType> = ({}: PageEditorPropsT
         onOpen={handleOpenPageBrowser}
         onClose={handleClosePageBrowser}
       >
-        <PageBrowser onClose={handleClosePageBrowser} />
+        <PageBrowser />
       </VerticalPeeker>
       <div className={css.contextualPage}>
         {
@@ -48,7 +56,15 @@ const PageEditor: FunctionComponent<PageEditorPropsType> = ({}: PageEditorPropsT
             </div>
           :
             <div className={css.page}>
-              <p>{ contextualPage.content }</p>
+              <div className={css.pageInfo}>
+                <span>Page { BuilderStore.contextualPageNumber }</span>
+              </div>
+              <div className={css.editor}>
+                <BlockWriter
+                  content={contextualPage.content}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
         }
       </div>

@@ -6,8 +6,8 @@
 	.contextualPage{
 		height: 100%;
 		background-color: var(--colour-paper);
-		padding: var(--spacing-sm);
-		padding-left: var(--spacing-lg);
+		padding: var(--spacing-lg);
+		box-sizing: border-box;
 
 		.noPageSelected{
 			display: flex;
@@ -15,6 +15,22 @@
 			justify-content: center;
 			height: 100%;
 			color: var(--colour-muted);
+		}
+
+		.page{
+			max-width: 1200px;
+			margin: auto;
+
+			.pageInfo{
+				color: var(--colour-muted);
+			}
+
+			.editor{
+				padding: var(--spacing-md);
+				background-color: var(--colour-white);
+				border: 1px solid var(--colour-muted);
+				border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+			}
 		}
 	}
 }

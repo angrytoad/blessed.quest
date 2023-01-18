@@ -1,20 +1,17 @@
 import React, {FunctionComponent, useContext} from "react";
 import { observer } from "mobx-react";
 import css from "./PageBrowser.module.scss"
-import {AddPage} from "iconoir-react";
+import {AddPage, NavArrowRight} from "iconoir-react";
 import {AppContext} from "../../AppContext";
 import Button from "../../Atoms/Button/Button";
-import ClickableText from "../../Atoms/ClickableText/ClickableText";
 import {Page} from "../../Types/story.types";
 
 export type PageBrowserPropsType = {
   className?: string,
-  onClose: () => void,
 }
 
 const PageBrowser: FunctionComponent<PageBrowserPropsType> = ({
   className = '',
-  onClose,
 }: PageBrowserPropsType) => {
 
   const {
@@ -27,8 +24,9 @@ const PageBrowser: FunctionComponent<PageBrowserPropsType> = ({
 
   const handleSetContextualPage = (page: Page) => {
     BuilderStore.setContextualPage(page);
-    onClose();
   }
+
+  const contextualPage = BuilderStore.contextualPage;
 
   return (
     <div
@@ -57,11 +55,24 @@ const PageBrowser: FunctionComponent<PageBrowserPropsType> = ({
             </div>
           </div>
         :
-          <div>
+          <div className={css.pages}>
             {
               BuilderStore.pages.map((page, i) => {
+                const active = contextualPage && contextualPage.id === page.id;
                 return (
-                  <div className={css.page} key={i} onClick={() => handleSetContextualPage(page)}>
+                  <div
+                    className={`
+                      ${css.page}
+                      ${active ? css.active : ''}
+                    `}
+                    key={i}
+                    onClick={() => handleSetContextualPage(page)}
+                  >
+                    {
+                      active && (
+                        <NavArrowRight className={css.icon} />
+                      )
+                    }
                     Page {i+1}
                   </div>
                 )

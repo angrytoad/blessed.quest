@@ -2,6 +2,8 @@ import {makeAutoObservable} from "mobx";
 import {clearPersistedStore, makePersistable} from 'mobx-persist-store';
 import {Metadata, Page} from "../Types/story.types";
 import localforage from "localforage";
+import {v4 as uuidv4} from 'uuid';
+import {Block, Blocks, BlockType, ParagraphBlock} from "../Molecules/BlockWriter/types";
 
 
 class BuilderStore {
@@ -49,7 +51,16 @@ class BuilderStore {
 
   addPage(): Page{
     const page: Page = {
-      content: `Page ${this.pages.length+1}`
+      id: uuidv4(),
+      content: [
+        {
+          id: uuidv4(),
+          type: BlockType.PARAGRAPH,
+          data: {
+            text: 'I\'m a page!',
+          }
+        } as Block<ParagraphBlock>
+      ]
     }
     this.pages.push(page);
     return page;
@@ -57,6 +68,23 @@ class BuilderStore {
 
   setContextualPage(page: Page){
     this.contextualPage = page;
+  }
+
+  setContextualPageContent(content: Blocks){
+    if(this.contextualPage){
+      this.contextualPage.content = content;
+    }
+  }
+
+  get contextualPageNumber(): number | null {
+    if(this.contextualPage !== null){
+      return this.pages.findIndex((p) => {
+        if(this.contextualPage){
+          return p.id === this.contextualPage.id
+        }
+      }) + 1;
+    }
+    return null;
   }
 
 }

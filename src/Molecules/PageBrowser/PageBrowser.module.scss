@@ -42,6 +42,28 @@
 		}
 	}
 
+	.pages{
+		.page{
+			font-weight: var(--font-weight-light);
+			border-left: 5px solid var(--colour-paper);
+			cursor: pointer;
+			padding: 0 5px;
+			display: flex;
+
+			&.active{
+				font-weight: var(--font-weight-bold);
+			}
+
+			&:hover{
+				background-color: var(--colour-paper);
+			}
+
+			.icon{
+
+			}
+		}
+	}
+
 	@media screen and (max-width: 768px) {
 		width: 210px;
 	}

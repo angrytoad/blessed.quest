@@ -1,3 +1,5 @@
+import {Block, BlockTypes} from "../Molecules/BlockWriter/types";
+
 export type Metadata = {
   title: string,
   author?: string,
@@ -5,5 +7,6 @@ export type Metadata = {
 }
 
 export type Page = {
-  content: string,
+  id: string,
+  content: Array<Block<BlockTypes>>,
 }
