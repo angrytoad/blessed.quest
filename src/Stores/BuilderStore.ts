@@ -3,7 +3,6 @@ import {clearPersistedStore, makePersistable} from 'mobx-persist-store';
 import {Metadata, Page} from "../Types/story.types";
 import localforage from "localforage";
 import {v4 as uuidv4} from 'uuid';
-import {Block, Blocks, BlockType, ParagraphBlock} from "../Molecules/BlockWriter/types";
 
 
 class BuilderStore {

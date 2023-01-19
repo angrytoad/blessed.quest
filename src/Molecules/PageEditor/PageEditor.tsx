@@ -1,15 +1,12 @@
-import React, {FunctionComponent, useContext, useState} from "react";
+import React, {FunctionComponent, useContext} from "react";
 import { observer } from "mobx-react";
 import css from "./PageEditor.module.scss"
 import FadeIn from "../../Atoms/FadeIn/FadeIn";
 import {AppContext} from "../../AppContext";
-import PageBrowser from "../PageBrowser/PageBrowser";
-import VerticalPeeker from "../../Atoms/VerticalPeeker/VerticalPeeker";
 import ReactCodeMirror from "@uiw/react-codemirror";
 import {markdown} from "@codemirror/lang-markdown";
 import {EditorView} from "@codemirror/view"
 import ReactMarkdown from "react-markdown";
-import ButtonNode from "./ButtonNode/ButtonNode";
 import ImageNode from "./ImageNode/ImageNode";
 
 export type PageEditorPropsType = {}
