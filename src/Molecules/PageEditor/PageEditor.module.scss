@@ -1,12 +1,13 @@
 .pageEditor{
 	height: 100%;
 	display: grid;
-	grid-template-columns: auto 1fr;
+	grid-template-columns: 1fr;
+	position: relative;
 
 	.contextualPage{
 		height: 100%;
 		background-color: var(--colour-paper);
-		padding: var(--spacing-lg);
+		padding: var(--spacing-lg) 0;
 		box-sizing: border-box;
 
 		.noPageSelected{
@@ -18,18 +19,33 @@
 		}
 
 		.page{
-			max-width: 1200px;
+			max-width: 1600px;
 			margin: auto;
+			height: 100%;
+			display: grid;
+			grid-template-rows: auto 1fr;
 
 			.pageInfo{
 				color: var(--colour-muted);
 			}
 
 			.editor{
-				padding: var(--spacing-md);
+				display: flex;
 				background-color: var(--colour-white);
 				border: 1px solid var(--colour-muted);
 				border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+
+				.mirror,.preview{
+					display: inline-block;
+					height: 100%;
+					width: 50%;
+					vertical-align: top;
+					padding: var(--spacing-sm);
+					box-sizing: border-box;
+				}
+				.preview{
+					border-left: 1px solid var(--colour-muted);
+				}
 			}
 		}
 	}

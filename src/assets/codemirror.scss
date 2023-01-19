@@ -1,0 +1,36 @@
+.cm-editor *{
+	font-family: 'Source Serif Pro', serif;
+}
+
+.cm-focused{
+	outline: none!important;
+}
+
+.ͼ2 .cm-activeLine{
+	// background-color: var(--colour-chalk)!important;
+}
+
+
+ul{
+	list-style: initial;
+	padding-left: var(--spacing-md)
+}
+
+blockquote{
+	quotes: initial;
+	background-color: var(--colour-paper);
+	padding: var(--spacing-sm) var(--spacing-sm);
+	margin: var(--spacing-md) 0;
+
+	p{
+		margin: 0;
+	}
+}
+
+hr{
+	margin: var(--spacing-md) 0;
+}
+
+em{
+	font-style: italic;
+}

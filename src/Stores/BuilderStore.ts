@@ -52,15 +52,7 @@ class BuilderStore {
   addPage(): Page{
     const page: Page = {
       id: uuidv4(),
-      content: [
-        {
-          id: uuidv4(),
-          type: BlockType.PARAGRAPH,
-          data: {
-            text: 'I\'m a page!',
-          }
-        } as Block<ParagraphBlock>
-      ]
+      content: ''
     }
     this.pages.push(page);
     return page;
@@ -70,7 +62,7 @@ class BuilderStore {
     this.contextualPage = page;
   }
 
-  setContextualPageContent(content: Blocks){
+  setContextualPageContent(content: string){
     if(this.contextualPage){
       this.contextualPage.content = content;
     }

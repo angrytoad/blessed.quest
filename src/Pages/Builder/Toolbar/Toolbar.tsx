@@ -1,13 +1,16 @@
-import React, {FunctionComponent, useContext} from "react";
+import React, {FunctionComponent, useContext, useState} from "react";
 import {observer} from "mobx-react";
 import css from "./Toolbar.module.scss"
 import {AppContext} from "../../../AppContext";
 import {Atom, Cancel, MultiplePages, Settings} from "iconoir-react";
 import {BuilderPage} from "../../../Types/ui.types";
+import VerticalPeeker from "../../../Atoms/VerticalPeeker/VerticalPeeker";
+import PageBrowser from "../../../Molecules/PageBrowser/PageBrowser";
 
 export type ToolbarPropsType = {}
 
 const Toolbar: FunctionComponent<ToolbarPropsType> = ({}: ToolbarPropsType) => {
+  const [showPageBrowser, setShowPageBrowser] = useState(false);
 
   const {
     BuilderStore,
@@ -24,6 +27,15 @@ const Toolbar: FunctionComponent<ToolbarPropsType> = ({}: ToolbarPropsType) => {
 
   const handleSelectMetadata = () => {
     BuilderUIStore.setBuilderPage(BuilderPage.METADATA);
+    handleClosePageBrowser();
+  }
+
+  const handleOpenPageBrowser = () => {
+    setShowPageBrowser(true);
+  }
+
+  const handleClosePageBrowser = () => {
+    setShowPageBrowser(false);
   }
 
   return (
@@ -59,6 +71,15 @@ const Toolbar: FunctionComponent<ToolbarPropsType> = ({}: ToolbarPropsType) => {
         />
       </div>
 
+      <VerticalPeeker
+        className={css.pageBrowser}
+        text="All Pages"
+        open={showPageBrowser}
+        onOpen={handleOpenPageBrowser}
+        onClose={handleClosePageBrowser}
+      >
+        <PageBrowser />
+      </VerticalPeeker>
     </div>
   );
 }

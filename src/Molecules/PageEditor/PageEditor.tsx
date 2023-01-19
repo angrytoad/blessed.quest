@@ -5,48 +5,28 @@ import FadeIn from "../../Atoms/FadeIn/FadeIn";
 import {AppContext} from "../../AppContext";
 import PageBrowser from "../PageBrowser/PageBrowser";
 import VerticalPeeker from "../../Atoms/VerticalPeeker/VerticalPeeker";
-import BlockWriter from "../BlockWriter/BlockWriter";
-import {Block, Blocks, BlockTypes} from "../BlockWriter/types";
-import {toJS} from "mobx";
+import ReactCodeMirror from "@uiw/react-codemirror";
+import {markdown} from "@codemirror/lang-markdown";
+import {EditorView} from "@codemirror/view"
+import ReactMarkdown from "react-markdown";
+import ButtonNode from "./ButtonNode/ButtonNode";
+import ImageNode from "./ImageNode/ImageNode";
 
 export type PageEditorPropsType = {}
 
 const PageEditor: FunctionComponent<PageEditorPropsType> = ({}: PageEditorPropsType) => {
-
-  const [showPageBrowser, setShowPageBrowser] = useState(false);
-
   const {
-    BuilderUIStore,
     BuilderStore,
   } = useContext(AppContext);
 
-  const handleOpenPageBrowser = () => {
-    console.log('open browser');
-    setShowPageBrowser(true);
+  const handleChange = (content: string) => {
+    BuilderStore.setContextualPageContent(content);
   }
 
-  const handleClosePageBrowser = () => {
-    console.log('close browser');
-    setShowPageBrowser(false);
-  }
-
-  const handleChange = (blocks: Blocks) => {
-    console.log(toJS(blocks));
-    BuilderStore.setContextualPageContent(blocks);
-  }
-
-  const contextualPage = BuilderStore.contextualPage;
+  const contextualPage = BuilderStore.contextualPage
 
   return (
     <FadeIn className={css.pageEditor}>
-      <VerticalPeeker
-        text="All Pages"
-        open={showPageBrowser}
-        onOpen={handleOpenPageBrowser}
-        onClose={handleClosePageBrowser}
-      >
-        <PageBrowser />
-      </VerticalPeeker>
       <div className={css.contextualPage}>
         {
           !contextualPage
@@ -60,10 +40,30 @@ const PageEditor: FunctionComponent<PageEditorPropsType> = ({}: PageEditorPropsT
                 <span>Page { BuilderStore.contextualPageNumber }</span>
               </div>
               <div className={css.editor}>
-                <BlockWriter
-                  content={contextualPage.content}
+                <ReactCodeMirror
+                  className={css.mirror}
+                  value={contextualPage.content}
+                  height="100%"
+                  extensions={[
+                    markdown({}),
+                    EditorView.lineWrapping,
+                  ]}
+                  autoFocus
                   onChange={handleChange}
+                  basicSetup={{
+                    lineNumbers: false,
+                    foldGutter: false,
+                  }}
                 />
+                <div className={css.preview}>
+                  <ReactMarkdown
+                    children={contextualPage.content}
+                    disallowedElements={['a']}
+                    components={{
+                      img: (props) => <ImageNode {...props} />
+                    }}
+                  />
+                </div>
               </div>
             </div>
         }

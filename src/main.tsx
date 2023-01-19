@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './assets/reset.scss';
 import './assets/main.scss';
+import './assets/codemirror.scss';
 import Home from "./Pages/Home/Home";
 import {Redirect, Route, Switch} from "wouter";
 import Builder from "./Pages/Builder/Builder";

@@ -5,6 +5,7 @@ import {AddPage, NavArrowRight} from "iconoir-react";
 import {AppContext} from "../../AppContext";
 import Button from "../../Atoms/Button/Button";
 import {Page} from "../../Types/story.types";
+import {BuilderPage} from "../../Types/ui.types";
 
 export type PageBrowserPropsType = {
   className?: string,
@@ -16,6 +17,7 @@ const PageBrowser: FunctionComponent<PageBrowserPropsType> = ({
 
   const {
     BuilderStore,
+    BuilderUIStore,
   } = useContext(AppContext);
 
   const handleAddPage = () => {
@@ -23,6 +25,7 @@ const PageBrowser: FunctionComponent<PageBrowserPropsType> = ({
   }
 
   const handleSetContextualPage = (page: Page) => {
+    BuilderUIStore.setBuilderPage(BuilderPage.PAGE_EDITOR);
     BuilderStore.setContextualPage(page);
   }
 

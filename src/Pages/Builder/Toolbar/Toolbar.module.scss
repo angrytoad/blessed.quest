@@ -3,6 +3,12 @@
 	flex-direction: column;
 	justify-content: space-between;
 	height: 100%;
+	position: relative;
+
+	.pageBrowser{
+		position: absolute;
+		left: 70px;
+	}
 
 	.main{
 		display: flex;

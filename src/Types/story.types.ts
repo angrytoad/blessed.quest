@@ -8,5 +8,5 @@ export type Metadata = {
 
 export type Page = {
   id: string,
-  content: Array<Block<BlockTypes>>,
+  content: string,
 }
