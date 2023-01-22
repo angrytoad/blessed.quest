@@ -1,5 +1,5 @@
 import {makeAutoObservable} from "mobx";
-import {BuilderPage} from "../Types/ui.types";
+import {BuilderPage, PageViewStyle} from "../Types/ui.types";
 import {clearPersistedStore, makePersistable} from "mobx-persist-store";
 import localforage from "localforage";
 
@@ -10,6 +10,8 @@ class BuilderUIStore {
   builderPage: BuilderPage | null = null;
   fullView = false;
 
+  pageViewStyle = PageViewStyle.MARKDOWN;
+
   constructor() {
     makeAutoObservable(this);
 
@@ -18,6 +20,7 @@ class BuilderUIStore {
       properties: [
         'builderPage',
         'fullView',
+        'pageViewStyle'
       ],
       storage: localforage
     });
@@ -45,6 +48,10 @@ class BuilderUIStore {
 
   hideFullView(){
     this.fullView = false;
+  }
+
+  setPageViewStyle(style: PageViewStyle){
+    this.pageViewStyle = style;
   }
 
 }

@@ -76,3 +76,11 @@
 		}
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.toolbar{
+		.pageBrowser{
+			left: 60px;
+		}
+	}
+}

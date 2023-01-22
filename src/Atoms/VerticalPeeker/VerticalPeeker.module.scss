@@ -53,20 +53,22 @@
 		}
 		.content{
 			width: 300px;
-
 		}
 	}
 
 	@media screen and (max-width: 768px) {
+		grid-template-columns: 1fr 10px;
+
 		.puller{
 			.text{
-				padding: 100px 5px;
+				padding: 50px 0px;
+				font-size: 0.8rem;
 			}
 		}
 
 		&.open{
 			.content{
-				max-width: 210px;
+				width: 210px;
 			}
 		}
 	}
