@@ -25,7 +25,7 @@
 			grid-template-rows: auto 1fr;
 
 			&.MARKDOWN,&.DISPLAY{
-				max-width: 1200px;
+				max-width: 800px;
 			}
 
 			.pageInfo{
@@ -37,29 +37,50 @@
 					color: var(--colour-muted);
 				}
 
-				.viewSelector{
+				.actions{
 					display: flex;
 
-					.option{
-						padding: var(--spacing-sm) var(--spacing-sm);
-						cursor: pointer;
-						color: var(--colour-muted);
+					.otherActions,.viewSelector{
+						display: flex;
 
-						&:hover{
-							color: var(--colour-basalt);
-						}
+						.option{
+							padding: var(--spacing-sm) var(--spacing-sm);
+							cursor: pointer;
+							color: var(--colour-muted);
+							position: relative;
+							display: flex;
+							align-items: center;
 
-						&.active{
-							background-color: var(--colour-basalt);
-							color: var(--colour-white);
-							border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
-						}
+							&:hover{
+								color: var(--colour-basalt);
+							}
 
-						.icon{
-							display: block;
+							&.active{
+								background-color: var(--colour-basalt);
+								color: var(--colour-white);
+								border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+							}
+
+							.icon{
+								display: block;
+							}
+
+							.count{
+								color: var(--colour-lancing);
+								padding: var(--spacing-xxs);
+								font-size: 1rem;
+								line-height: 1rem;
+								font-weight: var(--font-weight-bold);
+							}
 						}
 					}
+
+					.otherActions{
+						margin-right: var(--spacing-lg);
+					}
 				}
+
+
 			}
 
 			.editor{

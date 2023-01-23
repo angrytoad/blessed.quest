@@ -1,0 +1,83 @@
+.choiceCreator{
+	width: 400px;
+	color: var(--colour-basalt);
+
+	.title{
+		border-bottom: 1px solid var(--colour-muted);
+	}
+
+	.empty{
+		font-style: italic;
+		color: var(--colour-muted);
+	}
+
+	.add{
+		margin-top: var(--spacing-sm);
+	}
+
+	.choiceForm{
+		.header{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border-bottom: 1px solid var(--colour-muted);
+
+			.closeForm{
+				color: var(--colour-muted);
+			}
+		}
+
+		.form{
+			margin-top: var(--spacing-sm);
+
+			.input{
+				margin-bottom: var(--spacing-sm);
+			}
+
+			.pageSelect,.selected{
+				.pageNumber{
+					font-weight: var(--font-weight-bold);
+				}
+
+				.text{
+					color: var(--colour-muted);
+					font-size: 0.75rem;
+					line-height: 0.75rem;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+			}
+
+			.selected{
+				border-left: 5px solid var(--colour-lancing);
+				padding: var(--spacing-sm);
+				background-color: var(--colour-white);
+
+				.changePage{
+					color: var(--colour-muted);
+					font-size: 0.75rem;
+					line-height: 0.75rem;
+
+					&:hover{
+						text-decoration: underline;
+						cursor: pointer;
+					}
+				}
+			}
+
+			.submit{
+				margin-top: var(--spacing-sm);
+			}
+
+		}
+	}
+}
+
+
+
+@media screen and (max-width: 768px) {
+	.choiceCreator{
+
+	}
+}

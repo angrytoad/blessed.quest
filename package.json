@@ -12,6 +12,7 @@
     "@codemirror/lang-markdown": "^6.0.5",
     "@codemirror/view": "^6.7.3",
     "@uiw/react-codemirror": "^4.19.7",
+    "fuse.js": "^6.6.2",
     "iconoir-react": "^5.5.2",
     "localforage": "^1.10.0",
     "mobx": "^6.7.0",

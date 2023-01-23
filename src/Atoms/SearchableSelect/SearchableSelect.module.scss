@@ -1,0 +1,26 @@
+.searchableSelect{
+	position: relative;
+
+	.searchResults{
+		position: absolute;
+		background-color: var(--colour-chalk);
+		margin-top: var(--spacing-sm);
+		border: 1px solid var(--colour-muted);
+		left: 0;
+		right: 0;
+		z-index: 1000;
+
+		.searchResult{
+			padding: var(--spacing-sm);
+			background-color: var(--colour-white);
+			border-bottom: 1px solid var(--colour-muted);
+			border-left:5px solid var(--colour-paper);
+
+			&:hover{
+				background-color: var(--colour-chalk);
+				border-left:5px solid var(--colour-lancing);
+				cursor: pointer;
+			}
+		}
+	}
+}

@@ -11,6 +11,7 @@ import {BuilderPage} from "../../Types/ui.types";
 import Toolbar from "./Toolbar/Toolbar";
 import Details from "./Details/Details";
 import StoryCreationIntroduction from "../../Molecules/StoryCreationIntroduction/StoryCreationIntroduction";
+import ChoiceDialogue from "../../Molecules/ChoiceCreator/ChoiceCreator";
 
 export type BuilderPropsType = {}
 
