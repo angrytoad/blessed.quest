@@ -52,7 +52,7 @@ class BuilderStore {
     const page: Page = {
       id: uuidv4(),
       content: '',
-      contentSearchable: '',
+      contentSearchable: [],
       choices: [],
     }
     this.pages.push(page);
